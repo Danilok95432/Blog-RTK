@@ -1,0 +1,40 @@
+.user_page {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 150px;
+  &__title_block {
+    max-width: 1280px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    @media (max-width: 500px) {
+      flex-direction: column;
+    }
+    img {
+      border-radius: 50%;
+      border: 1px solid #888;
+    }
+    .info {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      text-align: left;
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  }
+  &__posts_block {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 10px;
+  }
+}
