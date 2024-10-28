@@ -1,15 +1,14 @@
 import { useDispatch, useSelector } from "react-redux";
-import { CommentCardProps } from "../interfaces/interfaces";
 import styles from "../styles/comments/_comments.module.scss";
 import UserCard from "./UserCard";
-import { useState } from "react";
 import { addReaction } from "../store/reactions";
 import { RootState } from "../store/store";
+import { CommentCardProps } from "../interfaces/interfaces";
+
+
 
 const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   const dispatch = useDispatch();
-  const [like, setLike] = useState(false);
-  const [dislike, setDislike] = useState(false);
 
   const reactions = useSelector(
     (state: RootState) => state.reactions.reactions
@@ -19,18 +18,10 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   );
 
   const handleLike = () => {
-    if (dislike) {
-      setDislike(false);
-    }
-    setLike(!like);
     dispatch(addReaction({ commentId: comment.id, reactionType: "like" }));
   };
 
   const handleDislike = () => {
-    if (like) {
-      setLike(false);
-    }
-    setDislike(!dislike);
     dispatch(addReaction({ commentId: comment.id, reactionType: "dislike" }));
   };
 
