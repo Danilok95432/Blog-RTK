@@ -49,4 +49,4 @@ export const authorization = createSlice({
 export const { changeLog, changeUsername, changePassword, setToken } =
   authorization.actions;
 
-export default authorization.reducer;
+

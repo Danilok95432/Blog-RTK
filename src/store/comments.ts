@@ -43,5 +43,3 @@ export const comments = createSlice({
 });
 
 export const { setComments, addComment } = comments.actions;
-
-export default comments.reducer;

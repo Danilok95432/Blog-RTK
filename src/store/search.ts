@@ -23,5 +23,3 @@ export const search = createSlice({
 });
 
 export const { changeValue } = search.actions;
-
-export default search.reducer;

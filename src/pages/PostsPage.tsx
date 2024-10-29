@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../store/store";
 import { changeValue } from "../store/search";
 import ErrorCard from "../components/ErrorCard";
+import classNames from "classnames";
 
 const PostsPage = () => {
   // ленивая загрузка
@@ -100,6 +101,24 @@ const PostsPage = () => {
   );
 
   // --------------------
+
+  const searchBarClass = classNames(styles.search_bar, {
+    [styles._active]: openSearch,
+  });
+
+  const searchBarTags = classNames(styles.search_bar__tags_filter, {
+    [styles._active]: openSearch,
+  });
+
+  const getPostsToRender = () => {
+    if (debouncedSearchTerm !== "" || currentTag !== "") {
+      return debouncedSearchTerm !== "" ? searchRes?.posts : filterRes?.posts;
+    }
+    return res?.posts;
+  };
+
+  const postsToRender = getPostsToRender();
+
   if (isLoading)
     return (
       <div className="loading">
@@ -114,7 +133,7 @@ const PostsPage = () => {
   return (
     <div className={styles.posts_page}>
       <div
-        className={`${styles.search_bar} ${openSearch ? styles._active : ""}`}
+        className={searchBarClass}
         onMouseEnter={() => setOpenSearch(true)}
         onMouseLeave={() => setOpenSearch(false)}
       >
@@ -129,9 +148,7 @@ const PostsPage = () => {
           value={search}
         />
         <select
-          className={`${styles.search_bar__tags_filter} ${
-            openSearch ? styles._active : ""
-          }`}
+          className={searchBarTags}
           onChange={(e) => setCurrentTag(e.target.value)}
         >
           <option></option>
@@ -153,26 +170,22 @@ const PostsPage = () => {
         />
       ) : (
         <ul className={styles.posts_list}>
-          {(() => {
-            const postsToRender =
-              debouncedSearchTerm !== "" || currentTag !== ""
-                ? debouncedSearchTerm !== ""
-                  ? searchRes?.posts
-                  : filterRes?.posts
-                : res?.posts;
-            if (postsToRender?.length == 0) return <ErrorCard />;
-            else
-              return postsToRender?.map((post: Post, index: number) => {
-                const isLastPost = index === postsToRender.length - 1;
-                return (
-                  <li ref={isLastPost ? lastPostRef : null} key={post.id}>
-                    <PostCard post={post} />
-                  </li>
-                );
-              });
-          })()}
+          {postsToRender.map((post: Post, index: number) => {
+            const isLastPost = index === postsToRender.length - 1;
+            return (
+              <li ref={isLastPost ? lastPostRef : null} key={post.id}>
+                <PostCard post={post} />
+              </li>
+            );
+          })}
         </ul>
       )}
+      {
+        postsToRender?.length === 0 ?
+        <ErrorCard />
+        :
+        null
+      }
     </div>
   );
 };

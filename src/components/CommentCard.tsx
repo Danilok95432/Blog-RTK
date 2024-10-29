@@ -3,9 +3,11 @@ import styles from "../styles/comments/_comments.module.scss";
 import UserCard from "./UserCard";
 import { addReaction } from "../store/reactions";
 import { RootState } from "../store/store";
-import { CommentCardProps } from "../interfaces/interfaces";
+import { Comment } from "../interfaces/interfaces";
 
-
+interface CommentCardProps {
+  comment: Comment;
+}
 
 const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   const dispatch = useDispatch();

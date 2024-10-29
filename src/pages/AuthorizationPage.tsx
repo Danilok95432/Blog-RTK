@@ -7,6 +7,7 @@ import { useLoginMutation } from "../store/api";
 import { useDispatch } from "react-redux";
 import { changeLog, setToken } from "../store/authorization";
 import { useNavigate } from "react-router-dom";
+import classNames from "classnames";
 
 interface FormValues {
   username: string;
@@ -41,14 +42,19 @@ const AuthorizationPage = () => {
         password: data.password,
         expiresInMins: 30,
       }).unwrap();
-      console.log(response)
+      console.log(response);
       dispatch(changeLog(true));
       dispatch(setToken(response.accessToken));
       navigate("/posts");
     } catch (error) {
-      alert("Ошибка при входе");
+      alert(`Ошибка при входе: ${error}`);
     }
   };
+
+  const passwordBtnClass = classNames(styles.password_btn, {
+    [styles._close]: showPassword,
+    [styles._open]: !showPassword,
+  });
 
   return (
     <div className={styles.authorization_page}>
@@ -79,9 +85,7 @@ const AuthorizationPage = () => {
           />
           <button
             type="button"
-            className={`${styles.password_btn} ${
-              showPassword ? styles._close : styles._open
-            }`}
+            className={passwordBtnClass}
             onClick={() => setShowPassword((prev: boolean) => !prev)}
           ></button>
           {errors.password && (

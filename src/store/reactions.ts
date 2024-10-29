@@ -76,5 +76,3 @@ export const reactions = createSlice({
 
 export const { addReaction, removeReaction, clearReactions } =
   reactions.actions;
-
-export default reactions.reducer;

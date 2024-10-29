@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { RootState } from "../store/store";
 import { useEffect } from "react";
 import ReactLoading from "react-loading";
+import classNames from "classnames";
 
 const schema = Yup.object().shape({
   comment: Yup.string()
@@ -57,6 +58,11 @@ const Comments = () => {
     }
     else navigate('/authorization')
   };
+
+  const commentBlockInput = classNames(styles.comment_block__input, {
+    [styles.comment_block__error_input]: errors.comment
+  })
+
   if (isLoading)
     return (
       <ReactLoading type={"spin"} color={"#000000"} height={667} width={375} />
@@ -73,7 +79,7 @@ const Comments = () => {
             type="text"
             placeholder="Напишите комментарий..."
             {...register("comment", { required: "Это поле обязательно" })}
-            className={`${styles.comment_block__input} ${errors.comment ? styles.comment_block__error_input : ''}`}
+            className={commentBlockInput}
           />
           {errors.comment && <label className={styles.comment_block__error}>{errors.comment.message}</label>}
         </div>

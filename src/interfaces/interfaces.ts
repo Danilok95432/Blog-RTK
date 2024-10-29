@@ -99,15 +99,7 @@ export interface AddReactionPayload {
   postId?: number;
   commentId?: number;
   reactionType: "like" | "dislike";
-}
-
-export interface PostCardProps {
-  post: Post;
-}
-
-export interface CommentCardProps {
-  comment: Comment;
-}
+} 
 
 export interface CommentForm {
   comment: string;
