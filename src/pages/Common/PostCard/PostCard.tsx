@@ -1,7 +1,7 @@
-import styles from "../styles/posts/_postcard.module.scss";
+import styles from "./_postcard.module.scss";
 import { NavLink } from "react-router-dom";
-import UserCard from "./UserCard";
-import { Post } from "../interfaces/interfaces";
+import UserCard from "../UserCard/UserCard";
+import { Post } from "../../../interfaces/interfaces";
 
 interface PostCardProps {
   post: Post;

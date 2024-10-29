@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
-import styles from "../styles/header/_header.module.scss";
+import styles from "./_header.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../store/store";
-import { changeLog, setToken } from "../store/authorization";
-import { useGetMeMutation } from "../store/api";
+import { RootState } from "../../../store/store";
+import { changeLog, setToken } from "../../../store/authorization";
+import { useGetMeMutation } from "../../../store/api";
 import { useEffect } from "react";
-import { logout, setUser } from "../store/user";
-import { clearReactions } from "../store/reactions";
+import { logout, setUser } from "../../../store/user";
+import { clearReactions } from "../../../store/reactions";
 
 const Header = () => {
   const isAuth = useSelector((state: RootState) => state.authorization.isAuth);

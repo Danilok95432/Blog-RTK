@@ -1,12 +1,12 @@
 import { useParams } from "react-router-dom";
-import { useGetPostQuery } from "../store/api";
-import styles from "../styles/posts/_postpage.module.scss";
+import { useGetPostQuery } from "../../store/api";
+import styles from "./_postpage.module.scss";
 import ReactLoading from "react-loading";
-import Comments from "../components/Comments";
-import UserCard from "../components/UserCard";
+import Comments from "./components/Comments";
+import UserCard from "../Common/UserCard/UserCard";
 import { useDispatch, useSelector } from "react-redux";
-import { addReaction } from "../store/reactions";
-import { RootState } from "../store/store";
+import { addReaction } from "../../store/reactions";
+import { RootState } from "../../store/store";
 
 const PostPage = () => {
   const { id } = useParams();

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useGetUserQuery } from "../store/api";
-import styles from "../styles/users/_usercard.module.scss";
+import { useGetUserQuery } from "../../../store/api";
+import styles from "./_usercard.module.scss";
 
 const UserCard = (id: any) => {
   const { data: user } = useGetUserQuery(id.id);

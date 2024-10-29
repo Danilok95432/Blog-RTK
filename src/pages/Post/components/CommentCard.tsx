@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import styles from "../styles/comments/_comments.module.scss";
-import UserCard from "./UserCard";
-import { addReaction } from "../store/reactions";
-import { RootState } from "../store/store";
-import { Comment } from "../interfaces/interfaces";
+import styles from "./_comments.module.scss";
+import UserCard from "../../Common/UserCard/UserCard";
+import { addReaction } from "../../../store/reactions";
+import { RootState } from "../../../store/store";
+import { Comment } from "../../../interfaces/interfaces";
 
 interface CommentCardProps {
   comment: Comment;

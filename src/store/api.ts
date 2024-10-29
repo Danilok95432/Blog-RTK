@@ -6,14 +6,29 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: url }),
   endpoints: (builder) => ({
-    getPosts: builder.query<any, number>({
-      query: (page) => ({
-        url: 'posts',
-        params: {
-          limit: 10 + page * 10,
-          skip: 0,
-        },
-      }),
+    getPosts: builder.query<any, { page?: number; tag?: string; search?: string }>({
+      query: ({ page, tag, search }) => {
+        if (search) {
+          return {
+            url: 'posts/search',
+            params: {
+              q: search,
+            },
+          };
+        } else if (tag) {
+          return {
+            url: `posts/tag/${tag}`,
+          };
+        } else {
+          return {
+            url: 'posts',
+            params: {
+              limit: 10 + (page || 0) * 10,
+              skip: 0,
+            },
+          };
+        }
+      },
     }),
     getPostsByUser: builder.query<any, string | undefined>({
       query: (id) => `posts/user/${id}`,
@@ -30,22 +45,11 @@ export const api = createApi({
         },
       }),
     }),
-    getPostsByTag: builder.query<any, string>({
-      query: (tag) => `posts/tag/${tag}`,
-    }),
     getComments: builder.query<any, string | undefined>({
       query: (id) => `comments/post/${id}`,
     }),
     getUser: builder.query<any, string | undefined>({
       query: (id) => `users/${id}`,
-    }),
-    searchPost: builder.query<any, string>({
-      query: (field) => ({
-        url: 'posts/search',
-        params: {
-          q: field,
-        },
-      }),
     }),
     login: builder.mutation({
       query: (credentials) => ({
@@ -70,8 +74,6 @@ export const {
   useGetPostsByUserQuery,
   useGetPostQuery,
   useGetPostsTagListQuery,
-  useGetPostsByTagQuery,
-  useSearchPostQuery,
   useGetCommentsQuery,
   useGetUserQuery,
   useLoginMutation,

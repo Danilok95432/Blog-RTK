@@ -1,11 +1,11 @@
-import styles from "../styles/authorization/_authorizationpage.module.scss";
+import styles from './_authorizationpage.module.scss'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import * as Yup from "yup";
-import { useLoginMutation } from "../store/api";
+import { useLoginMutation } from "../../store/api";
 import { useDispatch } from "react-redux";
-import { changeLog, setToken } from "../store/authorization";
+import { changeLog, setToken } from "../../store/authorization";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
@@ -18,7 +18,7 @@ const schema = Yup.object().shape({
   username: Yup.string().required("Это поле обязательно"),
   password: Yup.string()
     .required("Это поле обязательно")
-    .min(8, "Пароль должен содержать минимум 6 символов"),
+    .min(8, "Пароль должен содержать минимум 8 символов"),
 });
 
 const AuthorizationPage = () => {

@@ -6,11 +6,11 @@ import {
   Navigate,
 } from "react-router-dom";
 
-import Header from "./components/Header";
-import UserPage from "./pages/UserPage";
-import PostPage from "./pages/PostPage";
-import PostsPage from "./pages/PostsPage";
-import AuthorizationPage from "./pages/AuthorizationPage";
+import Header from "./pages/Common/Header/Header";
+import UserPage from "./pages/User/UserPage";
+import PostPage from "./pages/Post/PostPage";
+import PostsPage from "./pages/Posts/PostsPage";
+import AuthorizationPage from "./pages/Authorization/AuthorizationPage";
 
 function App() {
   return (

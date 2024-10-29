@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useGetPostsByUserQuery, useGetUserQuery } from "../store/api";
-import styles from "../styles/users/_userpage.module.scss";
-import { Post } from "../interfaces/interfaces";
-import PostCard from "../components/PostCard";
+import { useGetPostsByUserQuery, useGetUserQuery } from "../../store/api";
+import styles from "./_userpage.module.scss";
+import { Post } from "../../interfaces/interfaces";
+import PostCard from "../Common/PostCard/PostCard";
 import ReactLoading from "react-loading";
 
 const UserPage = () => {
