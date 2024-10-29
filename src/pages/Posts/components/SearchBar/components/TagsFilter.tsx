@@ -12,7 +12,7 @@ const TagsFilter: React.FC<TagsProps> = ({ openSearch }) => {
   const dispatch = useDispatch()
   const { data: tags } = useGetPostsTagListQuery();
 
-  const searchBarTags = classNames(styles.search_bar__tags_filter, {
+  const searchBarTags = classNames(styles.tagsFilter, {
     [styles._active]: openSearch,
   });
 

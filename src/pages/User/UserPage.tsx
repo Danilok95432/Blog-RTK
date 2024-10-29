@@ -22,8 +22,8 @@ const UserPage = () => {
       </div>
     );
   return (
-    <div className={styles.user_page}>
-      <div className={styles.user_page__title_block}>
+    <div className={styles.userPage}>
+      <div className={styles.titleBlock}>
         <img src={user?.image} alt="" />
         <div className={styles.info}>
           <h2>{user?.firstName + " " + user?.lastName}</h2>
@@ -34,7 +34,7 @@ const UserPage = () => {
           </div>
         </div>
       </div>
-      <div className={styles.user_page__posts_block}>
+      <div className={styles.postsBlock}>
         <h2>Посты пользователя {user?.username}:</h2>
         {res?.posts.length > 0 ? (
           res?.posts.map((post: Post) => {

@@ -1,15 +1,15 @@
-.authorization_page {
+.authorizationPage {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh; // Занимает всю высоту экрана
+  height: 100vh; /* Занимает всю высоту экрана */
 
   h2 {
     margin-bottom: 20px;
   }
 
-  .authorization_form {
+  .authorizationForm {
     background: #ffffff;
     padding: 75px 85px;
     display: flex;
@@ -19,7 +19,7 @@
     @media (max-width: 424px) {
       padding: 40px;
     }
-    .form_group {
+    .formGroup {
       width: 100%;
       margin: 0 auto;
       position: relative;
@@ -33,7 +33,7 @@
         color: #b4b4b4;
       }
 
-      .form_input {
+      .formInput {
         width: 100%;
         max-height: 45px;
         margin: auto;
@@ -52,7 +52,7 @@
         font-size: 12px;
       }
 
-      .password_btn {
+      .passwordBtn {
         position: absolute;
         right: 15px;
         top: 32px;
@@ -72,7 +72,7 @@
       }
     }
 
-    .submit_button {
+    .submitButton {
       width: 160px;
       margin: auto;
       padding: 10px;

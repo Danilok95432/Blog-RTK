@@ -6,10 +6,10 @@ const UserCard = (id: any) => {
   const { data: user } = useGetUserQuery(id.id);
 
   return (
-    <Link className={styles.user_card} to={`/user/${user?.id}`}>
-      <img className={styles.user_card__avatar} src={user?.image} alt="" />
-      <span className={styles.user_card__username}>{user?.username}</span>
-      <span className={styles.user_card__fullName}>
+    <Link className={styles.userCard} to={`/user/${user?.id}`}>
+      <img className={styles.avatar} src={user?.image} alt="" />
+      <span className={styles.username}>{user?.username}</span>
+      <span className={styles.fullName}>
         {user?.firstName + " " + user?.lastName}
       </span>
     </Link>

@@ -1,18 +1,18 @@
-.comments_section {
+.commentsSection {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  &__new_comment {
+  .newComment {
     display: flex;
     gap: 10px;
-    .comment_block {
+    .commentBlock {
       width: 100%;
       display: flex;
       flex-direction: column;
       text-align: left;
       gap: 5px;
-      &__input {
+      .input {
         flex-grow: 1;
         padding: 8px;
         border: 1px solid #ddd;
@@ -20,10 +20,10 @@
         height: 40px;
         font-size: 16px;
       }
-      &__error_input {
+      .errorInput {
         border: 1px solid #ff000d;
       }
-      &__error {
+      .error {
         font-size: 14px;
         padding-left: 12px;
         color: #ff000d;
@@ -39,7 +39,7 @@
       cursor: pointer;
     }
   }
-  &__list {
+  .list {
     list-style: none;
     padding: 0;
     .comment {
@@ -51,10 +51,10 @@
       margin-bottom: 10px;
       border-radius: 8px;
       text-align: left;
-      &__content {
+      .content {
         margin-bottom: 10px;
       }
-      &__info {
+      .info {
         display: flex;
         justify-content: flex-end;
         align-items: center;

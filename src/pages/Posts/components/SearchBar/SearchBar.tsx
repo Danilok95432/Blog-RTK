@@ -27,7 +27,7 @@ const SearchBar = () => {
   }, [inputValue]);
 
 
-  const searchBarClass = classNames(styles.search_bar, {
+  const searchBarClass = classNames(styles.searchBar, {
     [styles._active]: openSearch,
   });
 
@@ -38,7 +38,7 @@ const SearchBar = () => {
       onMouseLeave={() => setOpenSearch(false)}
     >
       <input
-        className={styles.search_bar__input}
+        className={styles.input}
         onChange={handleChange}
         onClick={() => setOpenSearch(true)}
         onMouseEnter={() => setOpenSearch(true)}

@@ -1,4 +1,4 @@
-.user_card {
+.userCard {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -6,17 +6,17 @@
   color: #000;
   font-size: 14px;
   transition: all 0.3s ease-in-out;
-  &__username {
+  .username {
     color: #646cff;
     font-weight: 600;
   }
-  &__fullName {
+  .fullName {
     color: #888;
     @media (max-width: 425px) {
       display: none;
     }
   }
-  &__avatar {
+  .avatar {
     width: 45px;
     height: 45px;
     margin-right: 10px;

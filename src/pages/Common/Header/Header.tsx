@@ -40,20 +40,20 @@ const Header = () => {
 
   return (
     <div className={styles.header}>
-      <NavLink to="/posts" className={styles.header__logo}>
+      <NavLink to="/posts" className={styles.logo}>
         Blog
       </NavLink>
       {isAuth ? (
-        <div className={styles.header__authorizated}>
+        <div className={styles.authorizated}>
           <NavLink to={`/user/${user?.id}`}>
-            <img className={styles.auth_user} src={user?.image} alt="" />
+            <img className={styles.authUser} src={user?.image} alt="" />
           </NavLink>
           <button onClick={handleLogOut} className={styles.logout}>
             Log out
           </button>
         </div>
       ) : (
-        <NavLink to="/authorization" className={styles.header__login}>
+        <NavLink to="/authorization" className={styles.login}>
           Log in
         </NavLink>
       )}

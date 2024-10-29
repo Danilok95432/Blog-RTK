@@ -4,7 +4,7 @@ import PostsList from "./components/PostsList/PostsList";
 
 const PostsPage = () => {
   return (
-    <div className={styles.posts_page}>
+    <div className={styles.postsPage}>
       <SearchBar />
       <PostsList />
     </div>

@@ -57,31 +57,31 @@ const AuthorizationPage = () => {
   });
 
   return (
-    <div className={styles.authorization_page}>
+    <div className={styles.authorizationPage}>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={styles.authorization_form}
+        className={styles.authorizationForm}
       >
         <h2>Авторизация</h2>
-        <div className={styles.form_group}>
+        <div className={styles.formGroup}>
           <label htmlFor="username">Логин</label>
           <input
             type="username"
             id="username"
             {...register("username")}
-            className={styles.form_input}
+            className={styles.formInput}
           />
           {errors.username && (
             <p className={styles.error}>{errors.username.message}</p>
           )}
         </div>
-        <div className={styles.form_group}>
+        <div className={styles.formGroup}>
           <label htmlFor="password">Пароль</label>
           <input
             type={showPassword ? "text" : "password"}
             id="password"
             {...register("password")}
-            className={styles.form_input}
+            className={styles.formInput}
           />
           <button
             type="button"
@@ -92,7 +92,7 @@ const AuthorizationPage = () => {
             <p className={styles.error}>{errors.password.message}</p>
           )}
         </div>
-        <button type="submit" className={styles.submit_button}>
+        <button type="submit" className={styles.submitButton}>
           Войти
         </button>
       </form>

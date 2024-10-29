@@ -1,4 +1,4 @@
-.post_page {
+.postPage {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@
     padding: 0;
   }
 
-  &__content {
+  .content {
     background-color: #fff;
     border: 1px solid #ddd;
     padding: 20px;
@@ -19,19 +19,19 @@
     text-align: left;
   }
 
-  &__title {
+  .title {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 10px;
   }
 
-  &__body {
+  .body {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 15px;
   }
 
-  &__info {
+  .info {
     display: flex;
     justify-content: space-between;
     margin-bottom: 10px;
@@ -84,7 +84,7 @@
       }
     }
   }
-  &__tags {
+  .tags {
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;

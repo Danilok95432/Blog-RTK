@@ -9,16 +9,16 @@ interface PostCardProps {
 
 const PostCard: React.FC<PostCardProps> = ({ post }) => {
   return (
-    <div className={styles.post_card}>
+    <div className={styles.postCard}>
       <NavLink className={styles.link} to={`/posts/${post.id}`}>
-        <h2 className={styles.post_card__title}>{post.title}</h2>
-        <p className={styles.post_card__body}>{post.body}</p>
+        <h2 className={styles.title}>{post.title}</h2>
+        <p className={styles.body}>{post.body}</p>
       </NavLink>
-      <div className={styles.post_card__info}>
+      <div className={styles.info}>
         <div className={styles.author}>
           <UserCard id={post?.userId} />
         </div>
-        <div className={styles.post_card__tags}>
+        <div className={styles.tags}>
           {post.tags.map((tag, index) => (
             <span key={index} className={styles.tag}>
               #{tag}

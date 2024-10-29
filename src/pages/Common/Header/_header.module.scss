@@ -12,7 +12,7 @@
   align-items: center;
   z-index: 1000;
 
-  &__authorizated {
+  .authorizated {
     position: absolute;
     display: flex;
     flex-direction: row;
@@ -29,7 +29,7 @@
       left: 0px;
       justify-content: space-between;
     }
-    .auth_user {
+    .authUser {
       border: 1px solid #ddd;
       border-radius: 50%;
       width: 45px;
@@ -61,7 +61,7 @@
     }
   }
 
-  &__login {
+  .login {
     border: none;
     background: #000;
     color: #ffffff;
@@ -82,7 +82,7 @@
       scale: 1.1;
     }
   }
-  &__logo {
+  .logo {
     background-color: #000;
     color: #ffffff;
     padding: 12px 15px;

@@ -5,6 +5,8 @@ import { useGetPostsQuery } from "../../../../store/api";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../../store/store";
 import { Post } from "../../../../interfaces/interfaces";
+import ReactLoading from "react-loading";
+import ErrorCard from "../../../Common/ErrorCard/ErrorCard";
 
 const PostsList = () => {
 
@@ -48,8 +50,20 @@ const PostsList = () => {
     };
   }, [isLoading, isFetching, loadMorePosts]);
   
+  if (isLoading)
+    return (
+      <div className="loading">
+        <ReactLoading
+          type={"spin"}
+          color={"#000000"}
+          height={667}
+          width={375}
+        />
+      </div>
+    );
+  if (res?.posts.length == 0) return <ErrorCard />;
   return(
-    <ul className={styles.posts_list}>
+    <ul className={styles.postsList}>
       {res?.posts.map((post: Post, index: number) => {
         const isLastPost = index === res?.posts.length - 1;
         return (

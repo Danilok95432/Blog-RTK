@@ -13,7 +13,7 @@
   padding-top: 150px;
 }
 
-.error_card {
+.errorCard {
   display: flex;
   flex-direction: column;
   gap: 20px;

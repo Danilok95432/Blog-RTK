@@ -59,8 +59,8 @@ const Comments = () => {
     else navigate('/authorization')
   };
 
-  const commentBlockInput = classNames(styles.comment_block__input, {
-    [styles.comment_block__error_input]: errors.comment
+  const commentBlockInput = classNames(styles.input, {
+    [styles.errorInput]: errors.comment
   })
 
   if (isLoading)
@@ -68,26 +68,26 @@ const Comments = () => {
       <ReactLoading type={"spin"} color={"#000000"} height={667} width={375} />
     );
   return (
-    <div className={styles.comments_section}>
+    <div className={styles.commentsSection}>
       <h3>Комментарии:</h3>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={styles.comments_section__new_comment}
+        className={styles.newComment}
       >
-        <div className={styles.comment_block}>
+        <div className={styles.commentBlock}>
           <input
             type="text"
             placeholder="Напишите комментарий..."
             {...register("comment", { required: "Это поле обязательно" })}
             className={commentBlockInput}
           />
-          {errors.comment && <label className={styles.comment_block__error}>{errors.comment.message}</label>}
+          {errors.comment && <label className={styles.error}>{errors.comment.message}</label>}
         </div>
         <button type="submit" className={styles.commentButton}>
           Отправить
         </button>
       </form>
-      <ul className={styles.comments_section__list}>
+      <ul className={styles.list}>
         {commentsPost
           ? commentsPost
               .slice()
