@@ -35,7 +35,7 @@ const Comments = () => {
 
   useEffect(() => {
     if (res?.comments) {
-      dispatch(setComments(res.comments));
+      dispatch(setComments(res?.comments));
     }
   }, [dispatch, res]);
 

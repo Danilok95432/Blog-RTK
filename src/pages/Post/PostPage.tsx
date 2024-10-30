@@ -23,14 +23,12 @@ const PostPage = () => {
   );
 
   const handleLike = () => {
-    dispatch(addReaction({ postId: post.id, reactionType: "like" }));
+    dispatch(addReaction({ postId: post?.id, reactionType: "like" }));
   };
 
   const handleDislike = () => {
-    dispatch(addReaction({ postId: post.id, reactionType: "dislike" }));
+    dispatch(addReaction({ postId: post?.id, reactionType: "dislike" }));
   };
-
-  console.log(reactions)
 
   if (isLoading)
     return (

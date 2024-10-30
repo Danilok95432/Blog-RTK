@@ -42,7 +42,6 @@ const AuthorizationPage = () => {
         password: data.password,
         expiresInMins: 30,
       }).unwrap();
-      console.log(response);
       dispatch(changeLog(true));
       dispatch(setToken(response.accessToken));
       navigate("/posts");

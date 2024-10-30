@@ -9,7 +9,6 @@ const UserPage = () => {
   const { id } = useParams();
   const { data: user, isLoading } = useGetUserQuery(id);
   const { data: res, isLoading: postsLoading } = useGetPostsByUserQuery(id);
-
   if (isLoading || postsLoading)
     return (
       <div className="loading">
@@ -36,7 +35,7 @@ const UserPage = () => {
       </div>
       <div className={styles.postsBlock}>
         <h2>Посты пользователя {user?.username}:</h2>
-        {res?.posts.length > 0 ? (
+        {res?.posts.length != undefined && res?.posts.length > 0 ? (
           res?.posts.map((post: Post) => {
             return <PostCard key={post.id} post={post} />;
           })

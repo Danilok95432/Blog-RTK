@@ -104,3 +104,15 @@ export interface AddReactionPayload {
 export interface CommentForm {
   comment: string;
 }
+
+export interface LoginData {
+  accessToken: string,
+  email: string,
+  firstName: string,
+  gender: string,
+  id: number,
+  image: string,
+  lastName: string,
+  refreshToken: string,
+  username: string
+}

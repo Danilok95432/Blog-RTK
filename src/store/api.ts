@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Post, Comment, User, LoginData } from "../interfaces/interfaces";
 
 const url = "https://dummyjson.com/";
 
@@ -6,7 +7,7 @@ export const api = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: url }),
   endpoints: (builder) => ({
-    getPosts: builder.query<any, { page?: number; tag?: string; search?: string }>({
+    getPosts: builder.query<{ limit: number, posts: Post[], skip: number, total: number}, { page?: number; tag?: string; search?: string }>({
       query: ({ page, tag, search }) => {
         if (search) {
           return {
@@ -30,13 +31,13 @@ export const api = createApi({
         }
       },
     }),
-    getPostsByUser: builder.query<any, string | undefined>({
+    getPostsByUser: builder.query<{ limit: number, posts: Post[], skip: number, total: number}, string | undefined>({
       query: (id) => `posts/user/${id}`,
     }),
-    getPost: builder.query<any, string | undefined>({
+    getPost: builder.query<Post, string | undefined>({
       query: (id) => `posts/${id}`,
     }),
-    getPostsTagList: builder.query<any, void>({
+    getPostsTagList: builder.query<string[], void>({
       query: () => ({
         url: 'posts/tag-list',
         params: {
@@ -45,13 +46,13 @@ export const api = createApi({
         },
       }),
     }),
-    getComments: builder.query<any, string | undefined>({
+    getComments: builder.query<{ limit: number, comments: Comment[], skip: number, total: number}, string | undefined>({
       query: (id) => `comments/post/${id}`,
     }),
-    getUser: builder.query<any, string | undefined>({
+    getUser: builder.query<User, string | undefined>({
       query: (id) => `users/${id}`,
     }),
-    login: builder.mutation({
+    login: builder.mutation<LoginData, {username: string, password: string, expiresInMins: number}>({
       query: (credentials) => ({
         url: "/auth/login",
         method: "POST",
@@ -59,7 +60,7 @@ export const api = createApi({
         headers: { "Content-Type": "application/json" },
       }),
     }),
-    getMe: builder.mutation({
+    getMe: builder.mutation<User, string>({
       query: (token) => ({
         url: "/auth/me",
         method: "GET",
